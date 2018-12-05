@@ -1,0 +1,62 @@
+var isValidSudoku = function(board) {
+  var ints = [] 
+  for (let i =0; i<board.length;i++){
+    board[i].forEach(function(x, index){
+      if (x !== '.'){
+        if (ints.findIndex(z => z.num === x && z.row === i) === -1){
+          ints.push({num: x, row: i, col: index})
+          // console.log(ints.findIndex(i => i.num === x && i.row === i))
+        }
+        else {
+          console.log(false);
+        }
+      }
+    })
+  }
+
+  // console.log(ints)
+  for (var i=0; i<ints.length; i++){
+    for (var j=1; j<ints.length - 1; j++){
+      if (ints[j].num === ints[i].num && ints[j].col === ints[i].col && ints[j].row !== ints[i].row){
+        // return false;
+        console.log(ints[j])
+        console.log(ints[i])
+      }
+    }
+  }
+
+  ints.forEach(function(x){
+    switch (x.row && x.col){
+      case 3>x.row>=0 && 3>x.col>=0:
+      break;
+      case 3>x.row>=0 && 6>x.col>2:
+      break;
+      case 3>x.row>=0 && 9>x.col>5:
+      break;
+      case 6>x.row>2 && 3>x.col>=0:
+      break;
+      case 6>x.row>2 && 6>x.col>2:
+      break;
+      case 6>x.row>2 && 9>x.col>5:
+      break;
+      case 9>x.col>5 && 3>x.col>=0:
+      break;
+    }
+  })
+  console.log(true);
+  // console.log(ints)
+};
+
+
+
+var soda = [["8","3",".",".","7",".",".",".","."],
+            ["6",".",".","1","9","5",".",".","."],
+            [".","9","8",".",".",".",".","6","."],
+            ["8",".",".",".","6",".",".",".","3"],
+            ["4",".",".","8",".","3",".",".","1"],
+            ["7",".",".",".","2",".",".",".","6"],
+            [".","6",".",".",".",".","2","8","."],
+            [".",".",".","4","1","9",".",".","5"],
+            [".",".",".",".","8",".",".","7","9"]]
+
+isValidSudoku(soda)
