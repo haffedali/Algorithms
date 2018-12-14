@@ -1,6 +1,30 @@
+/**
+ * INCOMPLETE
+ * INCOMPLETE
+ * INCOMPLETE
+ * INCOMPLETE
+ * INCOMPLETE
+ * INCOMPLETE
+ * INCOMPLETE
+ */
 function escape(maze) {
     //input [x,y] for x
-    //stringifyyyyy
+
+    var visited = []
+    //start position of 'me', logs the position as well as direction
+    var startPos;
+
+    //the exit door, used by leave as a starting point
+    var exit;
+
+    //variable used by leave() function
+    //array that stores the exit path
+    var path = []
+    
+    /**
+     * //used to stringify coordinates before mapping them... not sure why
+     * @param {number} coord - put [x,y] coordinates in to turn them into a string 
+     */
     function stringCoord(x){
         let string = x[0].toString() + "," + x[1].toString();
         return string
@@ -96,19 +120,23 @@ function escape(maze) {
             // neighbors(i,j)
             if (maze[i][j] !== '#'){
                 verticesCount++
+                if (i===0 || i===maze.length-1 || j===0|| j===maze[0].length-1){
+                    exit = stringCoord([i,j])
+                    path.push(exit)
+                }
                 if (maze[i][j] !== ' '){
                     switch(maze[i][j]){
                         case(">"):
-                            startPos = "right";
+                            startPos = ["right", stringCoord([i,j])];
                             break;
                         case("<"):
-                            startPos = "left";
+                            startPos = ["left", stringCoord([i,j])];
                             break;
                         case("^"):
-                            startPos = "up";
+                            startPos = ["up", stringCoord([i,j])];
                             break;
                         case("v"):
-                            startPos = "down";
+                            startPos = ["down", stringCoord([i,j])];
                             break;
                     }
                 }
@@ -123,7 +151,7 @@ function escape(maze) {
             for (let j=0;j<maze[i].length;j++){
                 if (maze[i][j] !== "#"){
                     g.addVertex([i,j])
-                    neighbors(i,j)
+                    // neighbors(i,j)
                 }
             }
         }
@@ -132,17 +160,40 @@ function escape(maze) {
             for (let j=0;j<maze[i].length;j++){
                 if (maze[i][j] !== "#"){
                     // g.addVertex([i,j])
-                    // neighbors(i,j)
+                    neighbors(i,j)
                 }
             }
         }
     }
     bfs();
-    g.printGraph();
-    
+    // g.printGraph();
+    // console.log(g.AdjList.get(exit))
+
+
+    //funciton to populate path
+    function leave(){
+        let spot = path[path.length-1];
+        visited.push(spot)
+        let trail = g.AdjList.get(spot)
+            // var trail = g.AdjList.get(spot)
+        for (let i=0;i<trail.length;i++){
+            if (visited.indexOf(trail[i]) === -1){
+                path.push(trail[i])
+                spot = trail[0]
+            }
+        }
+        if (path[path.length-1] !== startPos[1]){
+            leave();
+        }
+            
+    }
+    leave()
+    console.log(path)
+
+ 
   }
 
   escape(['#########',
-          '#>     ##',
-          '### ## ##',
-          '###### ##'])
+          '#>  #####',
+          '### #####',
+          '### #####'])
