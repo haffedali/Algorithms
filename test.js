@@ -1,56 +1,43 @@
-function test(){
-    var num = 2/6
-    console.log(num.toFixed(6))
-}
 
-
-
-function plusMinus(arr) {
-    var positive = 0;
-    var negative = 0;
-    var zero = 0;
-    var answer = [];
-    var count = arr.length;
-    for (let i = 0; i < arr.length; i++){
-        var x = arr[i]
-        if (x>0){
-            positive++
-        }
-        if (x<0){
-            negative++
-        }
-        if (x===0){
-            zero++
+function climbingLeaderboard(scores, alice) {
+    let scoresUnique = [];
+    let ans = [];
+    for (let i = 0; i < scores.length; i++) {
+        if (scoresUnique.indexOf(scores[i]) === -1) {
+            scoresUnique.push(scores[i]);
         }
     }
-    answer.push(parseInt((positive/count).toFixed(6)))
-    answer.push(parseInt((negative/count).toFixed(6)))
-    answer.push(parseInt((zero/count).toFixed(6)))
-    return answer
-}
 
-// plusMinus([2,-2,3,1,-2,0])
+    for (let i = 0; i < alice.length; i++) {
+        var currentScore = alice[i];
 
+        //Checking if the current score is, BIGGEST, SMALLEST, or EQUAL
+        if (currentScore > scoresUnique[0]) {
+            ans.push(1)
+            scoresUnique.push(alice[i])
+            scoresUnique.sort(function (a, b) { return b - a })
 
-function staircase(n) {
-    var step = 0
-    for (let i = 0; i < n; i++){
-        step++;
-        let string = ''
-        for (let j = 0; j < n-step; j++){
-            string += ' '
+        } else if (currentScore < scoresUnique[scoresUnique.length - 1]) {
+            ans.push(scoresUnique.length + 1)
+            scoresUnique.push(alice[i])
+            scoresUnique.sort(function (a, b) { return b - a })
+
+        } else if (scoresUnique.indexOf(currentScore) !== -1) {
+            ans.push(scoresUnique.indexOf(currentScore) + 1)
+            scoresUnique.push(alice[i])
+            scoresUnique.sort(function (a, b) { return b - a })
+
+        } else {
+            for (let j = 0; j < scoresUnique.length; j++) {
+                if (currentScore > scoresUnique[j] && currentScore < scoresUnique[j - 1]) {
+                    //no need to add one, placing to the left
+                    ans.push(j + 1)
+                    scoresUnique.push(alice[i])
+                    scoresUnique.sort(function (a, b) { return b - a })
+                }
+            }
         }
-        for (let m = 0; m < step; m++){
-            string += "#"
-        }
-        console.log(string)
     }
+    console.log(ans)
 }
-
-// staircase(100)
-
-function modPractice(n){
-    console.log(n[1])
-}
-
-modPractice("cutestuff")
+climbingLeaderboard([100,90,90,80,75,60],[50,102,77,90,65])
