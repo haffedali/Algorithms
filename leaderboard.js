@@ -57,6 +57,14 @@ function climbingLeaderboard(scores, alice) {
     return ans
 }
 
-function quickSort() {}
+function quickSort(arr, int) {
+    if (int > arr[Math.floor(arr.length/2)]){
+        
+    }
+}
+
+function findIt(arr, int) {
+
+}
 
 climbingLeaderboard([100,90,90,80,75,60],[50,102,77,90,65])
