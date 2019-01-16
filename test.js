@@ -40,4 +40,19 @@ function climbingLeaderboard(scores, alice) {
     }
     console.log(ans)
 }
-climbingLeaderboard([100,90,90,80,75,60],[50,102,77,90,65])
+// climbingLeaderboard([100,90,90,80,75,60],[50,102,77,90,65])
+
+
+var m= [[0,2,0], 
+ [2,0,2], 
+ [0,2,0]]
+
+
+function arrayAdd(n){
+    var sum = n[0][0] + n[2][1]
+    console.log(sum)
+}
+
+
+arrayAdd(m)
+

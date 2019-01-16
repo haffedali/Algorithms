@@ -13,4 +13,4 @@ function sum(n){
 }
 
 
-sum(3)
+sum(35)
