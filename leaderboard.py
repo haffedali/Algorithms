@@ -46,9 +46,10 @@ def climbing_leaderboard(scores, alice):
             position = sorting(scores, i, last, start)
             scores.insert(position, i)
             ans.append(position + 1)
-    return ans
-    # print()
+    # return ans
+    print(ans)
 
 climbing_leaderboard([100,90,90,80,75,60],[50,65,77,90,102])
 climbing_leaderboard([100,100,50,40,40,20,10],[5,25,50,120])
 # climbing_leaderboard([100,80,50,40],[30,60,70,120])
+# print("POOP")
