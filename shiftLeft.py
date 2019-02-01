@@ -1,3 +1,5 @@
 def rotLeft(a, d):
     d = d % len(a)
-    return a[d:] + a[:d]
+    print(a[d:] + a[:d])
+
+rotLeft([1,2,3], 1)
