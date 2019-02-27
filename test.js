@@ -54,5 +54,40 @@ function arrayAdd(n){
 }
 
 
-arrayAdd(m)
+function testRadio(){
+    var answer = 100 / (Math.pow(Math.E, ((0.693*100)/70)))
+    // var answer = 100 * Math.log((-0.693*100)/70)
+    console.log(((0.693*152.4)/38.7))
+    console.log(answer)
+}
 
+function testMath(){
+    var answer = Math.floor(77 / 5)
+    console.log(answer)
+}
+
+function fib(n) {
+    let array = [0,1]
+    if (n==0){
+        return 0
+    }
+    if (n==1 || n==2){
+        return 1
+    }
+    // only relevant because we take care of first 2 elements
+    n = n - 1
+    for (let i=0;i<n;i++){
+        let newFib = array[(array.length) - 1] + array[(array.length - 2)]
+        array.push(newFib)
+    }
+    return(array[array.length-1])
+}
+
+function peeker(){
+    let thing = []
+    if (thing[0]){
+        console.log('bleh')
+    }
+}
+
+peeker()
