@@ -25,7 +25,7 @@ def thirt(n):
             num = numToArrStr(result2)
             rollingSum = 0
             status = "result1"
-    return result1
+    
 def numToArrStr(n):
     n = str(n)
     num = []
@@ -36,4 +36,4 @@ def numToArrStr(n):
 
 
 
-thirt(1234567)
+thirt(1234567565768798096565)
