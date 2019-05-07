@@ -6,4 +6,18 @@ def DOT(x,y):
     return ans
 
 
-print(DOT([1,-2,2],[1,-2,2]))
+# print(DOT([2,-1,4,2,1],[1,-2,2,3,-1]))
+
+
+
+# Now we do it recursively
+
+def DOT_r(x,y,s,a):
+    if s < len(x):
+        a += x[s]*y[s]
+        s += 1
+        return DOTr(x,y,s,a)
+    if s == len(x):
+        return a
+
+print(DOT_r([2,-1,4,2,1],[1,-2,2,3,-1],0,0))
