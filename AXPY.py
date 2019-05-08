@@ -33,3 +33,9 @@ def axpy_r(x,y,a,c,s):
 
 print(axpy_r([0,0,1],[-3,2,0],4,0,[]))
 
+def test(x):
+    x = None
+    if x == None:
+        print("That's not it mothafucka")
+
+test(5)
