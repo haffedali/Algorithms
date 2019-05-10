@@ -46,7 +46,7 @@ def queensAttack(n,k,r_q,c_q,obstacles):
                 left = i[1]
 
         # ne and sw
-        if (i[1]-i[0]) == (c_q-r_q):
+        if abs((i[1]-i[0])) == (c_q-r_q):
             if i[1] > c_q and ne == None:
                 ne = i
             elif i[1] > c_q and i[0] < ne[0]:
@@ -74,9 +74,9 @@ def queensAttack(n,k,r_q,c_q,obstacles):
         print("NW none:",yCountN)
         points += yCountN
     else:
-        nwPoints = (nw[1]-c_q-1)
+        nwPoints = (c_q-nw[1]-1)
         print("NW points",nwPoints)
-        points += (nw[1]-c_q-1)
+        points +=  (c_q-nw[1]-1)
     
     if ne == None and east <= yCountN:
         print("NE none:",east)
@@ -108,9 +108,9 @@ def queensAttack(n,k,r_q,c_q,obstacles):
         print("SE none",yCountS) 
         points += yCountS
     else:
-        sePoints = (c_q-se[1]-1)
+        sePoints = (se[1]-c_q-1)
         print("SE points",sePoints)
-        points += (c_q-se[1]-1)
+        points += (se[1]-c_q-1)
 
         
     # straight calcs to add to all attackable positions if there ARENT any obstacles
