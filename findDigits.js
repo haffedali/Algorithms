@@ -10,4 +10,17 @@ function findDigits(n) {
 }
 
 var poop = findDigits(12)
-console.log(poop)
+
+Function.prototype.method= function(name, func) {
+        this.prototype[name] = func;
+        return this
+}
+
+Number.method('test', function(){
+    console.log('test')
+})
+
+
+
+let cat = 5;
+cat.test()

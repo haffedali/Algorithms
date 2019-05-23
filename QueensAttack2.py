@@ -49,21 +49,21 @@ def queensAttack(n,k,r_q,c_q,obstacles):
         if abs((i[1]-i[0])) == (c_q-r_q):
             if i[1] > c_q and ne == None:
                 ne = i
-            elif i[1] > c_q and i[0] < ne[0]:
+            elif i[1] > c_q and i[1] < ne[1]:
                 ne = i
             if i[1] < c_q and sw == None:
                 sw = i
-            elif i[1] < c_q and i[0] > sw[0]:
+            elif i[1] < c_q and i[0] < sw[0]:
                 sw = i
         # nw and se
         if (i[1]+i[0]) == (c_q+r_q):
-            if i[1] > c_q and nw == None:
+            if i[1] < c_q and nw == None:
                 nw=i
-            elif i[1] > c_q and i[0] < nw[0]:
+            elif i[1] < c_q and i[0] < nw[0]:
                 nw = i
-            if i[1] < c_q and se == None:
+            if i[1] > c_q and se == None:
                 se = i
-            elif i[1] < c_q and i[0] > se[0]:
+            elif i[1] > c_q and i[0] < se[0]:
                 se = i
 
     # Upper Diagonals check if there ARENT any obstacles
@@ -173,7 +173,7 @@ def queensAttack(n,k,r_q,c_q,obstacles):
 
 # test = queensAttack(5,3,4,3,[[5,5],[4,2],[2,3]])
 
-# test2 = queensAttack(6,1,5,3,[[1,1]])
+# test2 = queensAttack(6,1,5,3,[[1,1]]) 
 
 
 
