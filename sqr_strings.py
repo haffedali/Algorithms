@@ -51,12 +51,36 @@ def rot(strng):
     s = s.rstrip()
 
     return s
+
+def selfie_and_rot(strng):
+    s  = ""
+    strng_arr = strng.split("\n")
+    for i in strng_arr:
+        load = i + ("." * len(i)) + "\n"
+        s += load
+    
+    strng = list(reversed(strng.split("\n")))
+    for i in strng:
+        s += ("." * len(i)) + ''.join(reversed(i)) + "\n"
+    s = s.rstrip()
+    return s
+def oper(fct, s):
+    return fct(s)
+    # strng = list(reversed(strng.split("\n")))
+    # for i in strng:
+
+    #     s += ''.join(reversed(i)) 
+    #     s += "\n"
+    # # print(s)
+    # s = s.rstrip()
+
+    # return s
     
 
 
 
 # dog = vert_mirror("TEST\nTHIS\nONE\nTOO")
-cat = rot("TEST\nTHIS\nONE\nTOO")
+cat = selfie_and_rot("TEST\nTHIS\nONE\nTOO")
 
 # cat = oper(vert_mirror, "hello\ntonight\nlike")
 

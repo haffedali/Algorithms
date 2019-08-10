@@ -90,4 +90,19 @@ function peeker(){
     }
 }
 
-peeker()
+
+Array.method('reduce', function (f,value) {
+    var i;
+    for (i = 0; i<this.length; i+=1){
+        value = f(this[i], value)
+    }
+    return value;
+})
+
+
+function thisIsEasy(){
+    let first = "shadow"
+    let second = "Golden retriever"
+    console.log(first)
+    console.log(second)
+}
