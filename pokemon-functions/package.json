@@ -1,0 +1,15 @@
+{
+  "name": "pokemon-functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "grab-mons-sun-mon.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.1"
+  }
+}
