@@ -1,0 +1,23 @@
+{
+  "name": "algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "CalcWithFunctions.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haffedali/Algorithms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haffedali/Algorithms/issues"
+  },
+  "homepage": "https://github.com/haffedali/Algorithms#readme",
+  "dependencies": {
+    "jest": "^29.0.3"
+  }
+}
