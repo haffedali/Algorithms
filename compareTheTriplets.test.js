@@ -2,7 +2,7 @@
 // const { describe } = require('yargs')
 const compareTriplets = require("./compareTriplets");
 const reverseArray = require("./reverseArray");
-const matchingStrings = require("./matchingStrings")
+const matchingStrings = require("./matchingStrings");
 
 describe("Compare the Triplets testing", () => {
   test("Comparing two identical arrays should return [0,0]", () => {
@@ -30,19 +30,168 @@ describe("Reverse the Array testing", () => {
 
 describe.only("Matching Strings testing", () => {
   test("Calling matchingStrings with empyty array returns an empty array", () => {
-    expect(matchingStrings([],[])).toStrictEqual([])
+    expect(matchingStrings([], [])).toStrictEqual([]);
   });
   test("Calling matchingStrings with arrays that hold single values: found one", () => {
-    expect(matchingStrings(['cat'],['cat'])).toStrictEqual([1])
+    expect(matchingStrings(["cat"], ["cat"])).toStrictEqual([1]);
   });
   test("Calling matchingStrings with arrays that hold single values: did not find one", () => {
-    expect(matchingStrings(['cat'],['dog'])).toStrictEqual([0])
+    expect(matchingStrings(["cat"], ["dog"])).toStrictEqual([0]);
   });
   test("Calling matchingStrings with arrays that hold multiple values: found some for only one query", () => {
-    expect(matchingStrings(['cat','cat','cat'],['cat','dog'])).toStrictEqual([3,0])
+    expect(
+      matchingStrings(["cat", "cat", "cat"], ["cat", "dog"])
+    ).toStrictEqual([3, 0]);
   });
   test("Calling matchingStrings with arrays that hold multiple values: found some both queries", () => {
-    expect(matchingStrings(['cat','cat','cat','dog','cat','cat','dog'],['dog','cat'])).toStrictEqual([2,5])
+    expect(
+      matchingStrings(
+        ["cat", "cat", "cat", "dog", "cat", "cat", "dog"],
+        ["dog", "cat"]
+      )
+    ).toStrictEqual([2, 5]);
   });
-
+  test("Calling matchingStrings with arrays that hold many values: found some many queries", () => {
+    expect(
+      matchingStrings(
+        [
+          "cat",
+          "cat",
+          "cat",
+          "dog",
+          "cat",
+          "cat",
+          "dog",
+          "mouse",
+          "house",
+          "dog",
+          "moose",
+          "house",
+          "cat",
+          "cat",
+          "cat",
+          "dog",
+          "cat",
+          "cat",
+          "dog",
+          "mouse",
+          "house",
+          "dog",
+          "moose",
+          "house",
+          "cat",
+          "cat",
+          "cat",
+          "dog",
+          "cat",
+          "cat",
+          "dog",
+          "mouse",
+          "house",
+          "dog",
+          "moose",
+          "house",
+          "cat",
+          "cat",
+          "cat",
+          "dog",
+          "cat",
+          "cat",
+          "dog",
+          "mouse",
+          "house",
+          "dog",
+          "moose",
+          "house",
+          "cat",
+          "cat",
+          "cat",
+          "dog",
+          "cat",
+          "cat",
+          "dog",
+          "mouse",
+          "house",
+          "dog",
+          "moose",
+          "house",
+        ],
+        ["dog", "cat", "mouse", "xander", "house", "moose",'ned']
+      )
+    ).toStrictEqual([15, 25, 5, 0, 10, 5,0]);
+  });
+  test("Calling matchingStrings with arrays that hold many values: found some many queries", () => {
+    expect(
+      matchingStrings(
+        [
+          "cat",
+          "cat",
+          "cat",
+          "dog",
+          "cat",
+          "cat",
+          "dog",
+          "mouse",
+          "house",
+          "dog",
+          "moose",
+          "house",
+          "cat",
+          "cat",
+          "cat",
+          "dog",
+          "cat",
+          "cat",
+          "dog",
+          "mouse",
+          "house",
+          "dog",
+          "moose",
+          "house",
+          "cat",
+          "cat",
+          "cat",
+          "dog",
+          "cat",
+          "cat",
+          "dog",
+          "mouse",
+          "house",
+          "dog",
+          "moose",
+          "house",
+          "cat",
+          "cat",
+          "cheese",
+          "cheese",
+          "cheese",
+          "cat",
+          "dog",
+          "cat",
+          "cat",
+          "dog",
+          'test',
+          "mouse",
+          "house",
+          "dog",
+          "moose",
+          "netflix",
+          "house",
+          "cat",
+          "cat",
+          "cat",
+          "dog",
+          "cat",
+          "cat",
+          "dog",
+          "mouse",
+          "house",
+          "dog",
+          "moose",
+          "house",
+        ],
+        ["dog", "cat", "mouse", "xander", "house", "moose",'ned','cheese','netflix']
+      )
+    ).toStrictEqual([15, 25, 5, 0, 10, 5,0,3,1]);
+  });
 });
